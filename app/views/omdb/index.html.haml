@@ -1,0 +1,26 @@
+.search.row
+    .col.col--3-of-5.col--centered
+        .desc
+            %strong find movie posters
+            %small (from imdb)
+    .col.col--3-of-5.col--centered
+        %form{:role => 'search', :method => 'get'}
+            = text_field_tag :q, params[:q], class: 'search-bar', placeholder: 'movie name?', oninvalid: 'this.setCustomValidity("Type something!")'
+- if @result
+    .results.row
+        - @result.each do |movie|
+            .col.col--1-of-5
+                .box
+                    - if movie["Poster"] != "N/A"
+                        %a{:href => movie["Poster"]}
+                            .box-img
+                                .poster{:style => "background-image: url("+movie["Poster"]+")"}
+                    - else
+                        .box-img
+                            %h6.bad no poster!
+                    %a{:href => "http://www.imdb.com/title/"+movie["imdbID"]}
+                        %h3.title= movie["Title"]
+                    %h5.year= movie["Year"]
+- else
+    - if params[:q]
+        %h3.bad Nothing found!
