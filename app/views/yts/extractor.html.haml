@@ -11,7 +11,7 @@
         - @result.each do |movie|
             .col.col--1-of-5
                 .box
-                    %a{:download => movie["title_long"].tr(':',''), :href => movie["large_cover_image"]}
+                    %a{:download => movie["title_long"].tr(':','').concat('.jpg'), :href => movie["large_cover_image"]}
                         .box-img
                             .poster{:style => "background-image: url("+movie["medium_cover_image"]+")"}
 - else
