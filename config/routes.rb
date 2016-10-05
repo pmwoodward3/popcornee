@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-    resources :omdb
-    root "omdb#index"
+    resources :yts
+    root "yts#extractor"
 end
