@@ -2,11 +2,11 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 @import "grid";
-$break-small: 320px;
-$break-large: 1200px;
+
 .col{
     padding: 0;
 }
+
 .desc{
     text-align: center;
     font-size: 12pt;
@@ -26,9 +26,9 @@ $break-large: 1200px;
 
 .box{  
     margin: 0;
+    background-color: darken(#6DBE4D,10%);
     .box-img{
         overflow: hidden;
-        background-color: #6DBE4D;
         .poster{            
             width: 100%;
             height: 30vw;
@@ -58,7 +58,7 @@ $break-large: 1200px;
 .results{
     background-color: #222;
     padding: 0;
-    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 .search{
@@ -76,4 +76,10 @@ $break-large: 1200px;
     text-align: center;
     padding: 20px;
     box-sizing: border-box;
+    box-shadow: inset 0 0 0 0 darken(#6DBE4D,30%), inset 0 0 0 0 darken(#6DBE4D,20%), inset 0 0 0 0 darken(#6DBE4D,10%);
+    transition: box-shadow .1s ease;
+    &:focus{
+        outline: none;
+        box-shadow: inset 0 0 0 5px darken(#6DBE4D,30%), inset 0 0 0 10px darken(#6DBE4D,20%), inset 0 0 0 15px darken(#6DBE4D,10%);
+    }
 }
