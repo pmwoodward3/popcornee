@@ -21,15 +21,15 @@ $break-large: 1200px;
     background-color: crimson;
 }
 
-.box{
-    
-    margin: 10px;
+.box{  
+    margin: 10px 0;
     .box-img{
         border-radius: 10px;
         overflow: hidden;
         position:relative;
         z-index: 1;
-        background-color: dimgray;
+        background-color: #6DBE4D;
+        box-shadow: inset 0 5px 0 rgba(0,0,0,.3);
         .poster{
             width: 100%;
             @media screen and (orientation: landscape){

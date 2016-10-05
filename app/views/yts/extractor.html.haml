@@ -2,7 +2,7 @@
     .col.col--3-of-5.col--centered
         .desc
             %strong find movie posters
-            %small (from imdb)
+            %small (from yts)
     .col.col--3-of-5.col--centered
         %form{:role => 'search', :method => 'get'}
             = text_field_tag :q, params[:q], class: 'search-bar', placeholder: 'movie name?', oninvalid: 'this.setCustomValidity("Type something!")'
