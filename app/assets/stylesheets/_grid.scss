@@ -46,8 +46,8 @@ $toast-breakpoint-medium: 700px !default;
 $toast-breakpoint-small: 480px !default;
 
 // Pushes and pulls
-$toast-pushes: true !default;
-$toast-pulls: true !default;
+$toast-pushes: false !default;
+$toast-pulls: false !default;
 
 .#{$toast-grid-namespace} {
   list-style: none;
@@ -212,6 +212,10 @@ $toast-pulls: true !default;
     &.#{$toast-grid-column-namespace}--m-3-of-4 {
       width: percentage(3/4);
     }
+    
+    &.#{$toast-grid-column-namespace}--m-1-of-5 {
+      width: percentage(1/5);
+    }
   }
 
   @media (max-width: $toast-breakpoint-small) {
@@ -242,6 +246,10 @@ $toast-pulls: true !default;
 
     &.#{$toast-grid-column-namespace}--s-3-of-4 {
       width: percentage(3/4);
+    }
+    
+    &.#{$toast-grid-column-namespace}--s-1-of-5 {
+      width: percentage(1/5);
     }
   }
 }
