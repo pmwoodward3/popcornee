@@ -28,17 +28,10 @@ $break-large: 1200px;
     margin: 0;
     .box-img{
         overflow: hidden;
-        position:relative;
-        z-index: 1;
         background-color: #6DBE4D;
-        .poster{
+        .poster{            
             width: 100%;
-            @media screen and (orientation: landscape){
-                height: 30vw;
-            }
-            @media screen and (orientation: portrait){
-                height: 100vw;
-            }
+            height: 30vw;
             background-repeat: no-repeat;
             background-size: cover;
             background-position: top center;
@@ -65,6 +58,7 @@ $break-large: 1200px;
 .results{
     background-color: #222;
     padding: 0;
+    overflow-y: hidden;
 }
 
 .search{
