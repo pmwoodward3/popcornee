@@ -11,16 +11,9 @@
         - @result.each do |movie|
             .col.col--1-of-5
                 .box
-                    - if movie["large_cover_image"] != "N/A"
-                        %a{:href => movie["large_cover_image"]}
-                            .box-img
-                                .poster{:style => "background-image: url("+movie["medium_cover_image"]+")"}
-                    - else
+                    %a{:download => movie["title_long"].tr(':',''), :href => movie["large_cover_image"]}
                         .box-img
-                            %h6.bad no poster!
-                    %a{:href => "http://www.imdb.com/title/"+movie["imdb_code"]}
-                        %h3.title= movie["title"]
-                    %h5.year= movie["year"]
+                            .poster{:style => "background-image: url("+movie["medium_cover_image"]+")"}
 - else
     - if params[:q]
         %h3.bad Nothing found!

@@ -10,7 +10,7 @@ class YtsController < ApplicationController
             query = "&query_term=" + params[:q].parameterize('+')
             ytsURI = $ytsBaseURI + query
         else
-            ytsURI = $ytsBaseURI
+            ytsURI = $ytsBaseURI + "&query_term=2016"
         end
         response = Net::HTTP.get_response(URI.parse(ytsURI))
 
