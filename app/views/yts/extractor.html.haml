@@ -1,4 +1,4 @@
-.search.row
+%header.search.row
     .col.col--3-of-5.col--centered
         .desc
             %strong find movie posters
@@ -23,4 +23,4 @@
                                 .poster{:style => "background-image: url("+movie["medium_cover_image"]+")"}
 - else
     - if params[:q]
-        %h3.bad Nothing found!
+        %h3.bad Nothing was found!
