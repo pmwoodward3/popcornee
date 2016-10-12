@@ -4,12 +4,6 @@
     = text_field_tag :genre, params[:genre], placeholder: 'Genre?'
     = text_field_tag :rating, params[:rating], placeholder: 'Rating?'
     = submit_tag "submit", :name => nil
-%p.control
-    %span.select
-        %select
-            %option 720p
-            %option 1080p
-            %option 3D
 - if @movies
     = render "pagination/pagination-bar"
     #masonry-container.transitions-enabled.centered.clearfix.infinite-scroll.masonry
