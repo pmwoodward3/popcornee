@@ -4,6 +4,15 @@
     = text_field_tag :genre, params[:genre], placeholder: 'Genre?'
     = text_field_tag :rating, params[:rating], placeholder: 'Rating?'
     = submit_tag "submit", :name => nil
+.dropdown
+    %a.dropdown-toggle{"data-toggle" => "dropdown", :href => "#"}
+        Dropdown
+        %b.caret
+    %ul.dropdown-menu
+        %li
+            %a{:href => "#"} Action
+        %li
+            %a{:href => "#"} Another action
 %hr
 =@uri
 %hr
