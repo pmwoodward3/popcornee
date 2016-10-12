@@ -60,6 +60,31 @@
                 font-size: 14pt;
                 padding: 5px;
                 display: block;
+                &:hover{
+                    color: #333;
+                    font-weight: 500;
+                }
+            }
+            .pg{
+                color: #aaa;
+                border: 1px solid #bbb;
+                box-sizing: border-box;
+                background: white;
+                display: inline-block;
+                border-radius: 100%;
+                width: 40px;
+                height: 40px;
+                line-height: 40px;
+                font-size: 11pt;
+                font-weight: 200;
+                text-align: center;
+                margin: 5px 0;
+                &:hover{
+                    color: #333;
+                    border: 3px solid #333;
+                    font-weight: 600;
+                    line-height: 35px;
+                }
             }
         }
     }

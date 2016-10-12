@@ -20,13 +20,15 @@
                             %h1= movie["title"]
                             %p= truncate(movie["summary"], length: 300, separator: ' ')
                         .panel-footer
-                            = link_to params.merge(:year => movie["year"], :only_path => true).permit! do
+                            = link_to :year => movie["year"] do
                                 %h2= movie["year"]
                             = link_to "http://www.imdb.com/title/"+movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
                                 .star-rating{:class => "rate"+(movie["rating"]*10).to_i.to_s}
                                 %span.rating= movie["rating"]
+                            = link_to "http://www.imdb.com/title/"+movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
+                                .pg PG
                             - movie["genres"].each do |genre|
-                                = link_to params.merge(:genre => genre, :only_path => true).permit! do
+                                = link_to :genre => genre do
                                     .label.label-genre= genre
                     .link-group
                         - movie["torrents"].each do |torrent|

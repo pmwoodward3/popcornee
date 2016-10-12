@@ -10,12 +10,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'bootstrap-sass'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
-gem 'jquery-turbolinks'
-gem 'turbolinks', '~> 5'
 gem 'masonry-rails'
 gem 'jbuilder', '~> 2.5'
 gem 'json'
-gem "kaminari", github: "amatsuda/kaminari"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
