@@ -1,4 +1,4 @@
 Rails.application.routes.draw do
-    resources :yts
-    root "yts#index"
+    resources :movies, :path => ''
+    root "movies#index"
 end

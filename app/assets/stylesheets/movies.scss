@@ -1,0 +1,93 @@
+.movie-box{
+    width: 250px;
+    padding: 0;
+    margin: 20px;
+    line-height: normal;
+    border: none;
+    background: transparent;
+    .panel{
+        border-radius: 20px;
+        overflow: hidden;
+        border: none;
+        .panel-heading{
+            padding: 0;
+            border: none;
+            border-radius: 0;
+            overflow: hidden;
+            .movie-poster{
+                max-width: 100%;
+                max-height: 100%;
+                width: 100%;
+            }
+        }
+        .panel-body{
+            position: relative;
+            background: transparent;
+            h1{
+                text-align: left;
+                display: inline-block;
+                font-weight: 100;
+                font-size: 30pt;
+            }
+            p{
+                font-weight: 200;
+                font-size: 13pt;
+                color: #666;
+            }
+        }
+        .panel-footer{
+            text-align: center;
+            background-color: transparent;
+            border: none;
+            h2{
+                font-weight: 400;
+                font-size: 20pt;
+                letter-spacing: -3px;
+            }
+            .rating{
+                font-size: 12pt;
+                text-align: center;
+                font-weight: bold;
+                color: #fba400;
+                display: block;
+                margin-bottom: 10px;
+            }
+            .label-genre{
+                background: transparent;
+                color: #aaa;
+                font-weight: 200;
+                letter-spacing: 0;
+                font-size: 14pt;
+                padding: 5px;
+                display: block;
+            }
+        }
+    }
+    .link-group{
+        width: 100%;
+        padding: 0;
+        margin: 0;
+        margin-top: -15px;
+        text-align: center;
+        .dl-link{
+            display: inline-block;
+            padding: 0;
+            width: 60px;
+            height: 60px;
+            text-align: center;
+            border-radius: 100%;
+            line-height: 60px;
+            margin: 5px;
+            font-size: 14pt;
+            font-weight: 100;
+            background: white;
+            box-shadow: 0 0 0 0 #DE9A3A;
+            transition: background .3s ease, box-shadow .1s ease;
+            &:hover{
+                color: white;
+                background: linear-gradient(to bottom,#F5B146,#DE9A3A);
+                box-shadow: 0 0 0 1px #DE9A3A;
+            }
+        }
+    }
+}

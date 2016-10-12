@@ -1,0 +1,44 @@
+$action:#ff7f00,#6f0d0d;
+$adventure:#d2bf00,#00ffd0;
+$animation:#006ad2,#fff700;
+$biography:#fcf8e3,#8bb8d2;
+$comedy: #f7b239,#d818a6;
+$crime:#2d2d2d,#efc600;
+$documentary:#adadad,#4d4c65;
+$drama:#c5e0ce,#cab993;
+$family:#e8893c,#8fe4c1;
+$fantasy:#d72ddc,#6d13bf;
+$film-noir:#313131,#a9a9a9;
+$history:#8a6d3b,#286090;
+$horror:#a5220d,#480350;
+$music:#dff0d8,#fba400;
+$musical:#c09bea,#fba400;
+$mystery:#b39408,#615151;
+$romance:#e40851,#8a0505;
+$sci-fi:#5e4686,#383838;
+$sport:#4abd52,#447344;
+$thriller:#523939,#d02600;
+$war:#515551,#A9563D;
+$western:#BF6733,#76170D;
+.Action{background: linear-gradient(to bottom left, $action);}
+.Adventure{background: linear-gradient(to bottom left, $adventure);}
+.Animation{background: linear-gradient(to bottom left, $animation);}
+.Biography{background: linear-gradient(to bottom left, $biography);}
+.Comedy{background: linear-gradient(to bottom left, $comedy);}
+.Crime{background: linear-gradient(to bottom left, $crime);}
+.Documentary{background: linear-gradient(to bottom left, $documentary);}
+.Drama{background: linear-gradient(to bottom left, $drama);}
+.Family{background: linear-gradient(to bottom left, $family);}
+.Fantasy{background: linear-gradient(to bottom left, $fantasy);}
+.Film-noir{background: linear-gradient(to bottom left, $film-noir);}
+.History{background: linear-gradient(to bottom left, $history);}
+.Horror{background: linear-gradient(to bottom left, $horror);}
+.Music{background: linear-gradient(to bottom left, $music);}
+.Musical{background: linear-gradient(to bottom left, $musical);}
+.Mystery{background: linear-gradient(to bottom left, $mystery);}
+.Romance{background: linear-gradient(to bottom left, $romance);}
+.Sci-fi{background: linear-gradient(to bottom left, $sci-fi);}
+.Sport{background: linear-gradient(to bottom left, $sport);}
+.Thriller{background: linear-gradient(to bottom left, $thriller);}
+.War{background: linear-gradient(to bottom left, $war);}
+.Western{background: linear-gradient(to bottom left, $western);}

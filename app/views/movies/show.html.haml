@@ -1,0 +1,15 @@
+.container
+    .row.white
+        .col-md-3.movie-box-solo
+            %h2= @movie.year
+            .star-rating{:class => "rate"+(@movie.rating*10).to_i.to_s}
+            %span.rating= @movie.rating
+            - @movie.genres.each do |genre|
+                .label.label-genre= genre  
+        .col-md-6.movie-box-solo
+            %h1= @movie.title
+            %p= @movie.summary
+                          
+        .col-md-3.movie-box-solo
+            %img.movie-poster{:src => @movie.poster, :alt => @movie.title}
+

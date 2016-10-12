@@ -1,0 +1,34 @@
+%form{:role => 'search', :method => 'get'}
+    = text_field_tag :year, params[:year], placeholder: 'Year?'
+    = text_field_tag :quality, params[:quality], placeholder: 'Quality?'
+    = text_field_tag :genre, params[:genre], placeholder: 'Genre?'
+    = text_field_tag :rating, params[:rating], placeholder: 'Rating?'
+    = submit_tag "submit", :name => nil
+%hr
+=@uri
+%hr
+- if @movies
+    = render "pagination/pagination-bar"
+    #masonry-container.transitions-enabled.centered.clearfix.infinite-scroll.masonry
+        - @movies.each do |movie|
+            - if movie["torrents"]
+                .movie-box
+                    .panel.panel-default
+                        .panel-heading
+                            %img.movie-poster{:src => movie["large_cover_image"], :alt => movie["title"]}
+                        .panel-body
+                            %h1= movie["title"]
+                            %p= truncate(movie["summary"], length: 300, separator: ' ')
+                        .panel-footer
+                            = link_to params.merge(:year => movie["year"], :only_path => true).permit! do
+                                %h2= movie["year"]
+                            = link_to "http://www.imdb.com/title/"+movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
+                                .star-rating{:class => "rate"+(movie["rating"]*10).to_i.to_s}
+                                %span.rating= movie["rating"]
+                            - movie["genres"].each do |genre|
+                                = link_to params.merge(:genre => genre, :only_path => true).permit! do
+                                    .label.label-genre= genre
+                    .link-group
+                        - movie["torrents"].each do |torrent|
+                            = link_to torrent["url"] do
+                                .dl-link= torrent["quality"]

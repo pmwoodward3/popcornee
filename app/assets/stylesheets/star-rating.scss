@@ -1,0 +1,29 @@
+$star-bg-color:#ccc;
+$star-fill-color:#fba400;
+$star-height-px:50;
+
+.star-rating{
+    background-color: $star-bg-color;
+    width:50px;
+    height: 50px;
+    position: relative;
+    display: inline-block;
+    &:after{
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        background-image:image-url("star-hollow.svg");
+        width:50px;
+        height: 50px;
+        background-color: transparent;
+    }
+}
+@for $i from 1 through 100 {
+    $width: $i / (-100/$star-height-px);
+    .rate#{$i} {
+        box-shadow: inset 0 $width+px $star-fill-color;
+    }
+}
