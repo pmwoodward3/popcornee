@@ -1,6 +1,14 @@
 .pagination-bar{
-    padding: 50px 0;
     text-align: center;
+    .controls, .pages{
+        white-space:nowrap;
+    }
+    .controls.left{
+        text-align: right;
+    }
+    .controls.right{
+        text-align: left;
+    }
     .controls{
         display: inline-block;
         a{
@@ -20,11 +28,11 @@
             width: 50px;
             height: 50px;
             line-height: 50px;
-            font-size: 20pt;
-            font-weight: 100;
+            font-size: 17pt;
+            font-weight: 200;
             text-align: center;
             border-radius: 100%;
-            margin: 0 10px;
+            margin: 0 3px;
             &:hover{
                 background: #333;
                 color: white;
@@ -40,8 +48,8 @@
             width: 50px;
             height: 50px;
             line-height: 50px;
-            font-size: 20pt;
-            font-weight: 100;
+            font-size: 17pt;
+            font-weight: 200;
             text-align: center;
             border-radius: 100%;
             margin: 0 10px;

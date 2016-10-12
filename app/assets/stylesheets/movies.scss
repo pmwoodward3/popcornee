@@ -9,6 +9,8 @@
         border-radius: 20px;
         overflow: hidden;
         border: none;
+        background: white;
+        margin: 20px 0;
         .panel-heading{
             padding: 0;
             border: none;
@@ -23,6 +25,7 @@
         .panel-body{
             position: relative;
             background: transparent;
+            padding: 0 15px;
             h1{
                 text-align: left;
                 display: inline-block;
@@ -39,6 +42,7 @@
             text-align: center;
             background-color: transparent;
             border: none;
+            padding: 15px 0;
             h2{
                 font-weight: 400;
                 font-size: 20pt;

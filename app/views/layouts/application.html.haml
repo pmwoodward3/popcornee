@@ -8,15 +8,13 @@
         = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
     - if params[:genre]
         %body{:class => params[:genre].capitalize}
-            .container-fluid.heading
-                .row.text-center{:style => "margin: 50px 0"}
-                    =link_to root_path do
-                        %img{:src => image_url("popcorn.svg"), :width => "200px"}
+            .text-center
+                =link_to root_path do
+                    %img.logo{:src => image_url("popcorn.svg")}
             = yield 
     - else
         %body
-            .container-fluid.heading
-                .row.text-center{:style => "margin: 50px 0"}
-                    =link_to root_path do
-                        %img{:src => image_url("popcorn.svg"), :width => "200px"}
+            .text-center
+                =link_to root_path do
+                    %img.logo{:src => image_url("popcorn.svg")}
             = yield 

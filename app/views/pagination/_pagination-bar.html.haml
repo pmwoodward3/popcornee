@@ -1,91 +1,89 @@
-.pagination-bar
+.columns.is-gapless.is-multiline.pagination-bar
     - if @last_page <= 5
-        - if @current_page != 1
-            .controls
+        .column.controls.left
+            - if @current_page != 1
                 = render 'pagination/prev'
         - $i = 1
-        .pages
+        .column.is-5.pages
             - while $i <= @last_page.to_i do
                 - if $i == @current_page
                     %span.current-page= $i
                 - else
                     = link_to $i.to_s, params.merge(:page => $i.to_s, :only_path => true).permit!, class: 'page'
                 - $i = $i + 1
-        - if @current_page != @last_page
-            .controls
+        .column.controls.right
+            - if @current_page != @last_page
                 = render 'pagination/next'
     - else
         - if @current_page > 1 && @current_page < @last_page
             - if @current_page == 2
-                .controls
+                .column.controls.left
                     = render 'pagination/first'
                 - $i = 1
-                .pages
+                .column.is-5.pages
                     - while $i <=5
                         - if $i == @current_page
                             %span.current-page= $i
                         - else
                             = link_to $i.to_s, params.merge(:page => $i.to_s, :only_path => true).permit!, class: 'page'
                         - $i = $i + 1
-                .controls
+                .column.controls.right
                     = render 'pagination/next'
                     = render 'pagination/last'
             - else
                 - if @current_page == @last_page.to_i - 1
-                    .controls
+                    .column.controls.left
                         = render 'pagination/first'
                         = render 'pagination/prev'
                     - $i = @current_page - 3
-                    .pages
+                    .column.is-5.pages
                         - while $i <= @current_page + 1
                             - if $i == @current_page
                                 %span.current-page= $i
                             - else
                                 = link_to $i.to_s, params.merge(:page => $i.to_s, :only_path => true).permit!, class: 'page'
                             - $i = $i + 1
-                    .controls
+                    .column.controls.right
                         = render 'pagination/last'
                 - else
-                    .controls
+                    .column.controls.left
                         = render 'pagination/first'
                         = render 'pagination/prev'
                     - $i = @current_page - 2
-                    .pages
+                    .column.is-5.pages
                         - while $i <= @current_page + 2
                             - if $i == @current_page
                                 %span.current-page= $i
                             - else
                                 = link_to $i.to_s, params.merge(:page => $i.to_s, :only_path => true).permit!, class: 'page'
                             - $i = $i + 1
-                    .controls
+                    .column.controls.right
                         = render 'pagination/next'
                         = render 'pagination/last'
         - else 
             - if @current_page == @last_page
-                .controls
+                .column.controls.left
                     = render 'pagination/first'
                     = render 'pagination/prev'
                 - $i = @current_page - 4
-                .pages
+                .column.is-5.pages
                     - while $i <= @current_page
                         - if $i == @current_page
                             %span.current-page= $i
                         - else
                             = link_to $i.to_s, params.merge(:page => $i.to_s, :only_path => true).permit!, class: 'page'
                         - $i = $i + 1
+                .column.controls.right
             - else
+                .column.controls.left
                 - $i = 1
-                .pages
+                .column.column.is-5.pages
                     - while $i <=5
                         - if $i == @current_page
                             %span.current-page= $i
                         - else
                             = link_to $i.to_s, params.merge(:page => $i.to_s, :only_path => true).permit!, class: 'page'
                         - $i = $i + 1
-                .controls
+                .column.controls.right
                     = render 'pagination/next'
                     = render 'pagination/last'
-                    
-- if $i == @current_page
-    %span.current-page= $i
-- else

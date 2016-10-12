@@ -4,7 +4,7 @@ class MoviesController < ApplicationController
         params.permit(:year, :genre, :rating, :quality, :page)
         ytsBaseURI = "https://yts.ag/api/v2/list_movies.json"
         
-        limitKey = "?limit=" + "50"
+        limitKey = "?limit=" + "20"
         
         pageKey, yearKey, qualityKey, genreKey, ratingKey = ""
         if params[:page]
