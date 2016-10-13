@@ -23,19 +23,20 @@
 @import "bulma";
 @import "font-awesome-sprockets";
 @import "font-awesome";
-
 body{
     margin: 0;
     padding: 0;
-    overflow-x: hidden;
     overflow-y: visible !important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     background: #f7b239;
     box-shadow: inset 0 170px 0 0 white;
 }
-.text-center{
-    text-align: center;
-}
+.text-center{text-align: center;}
+.text-left{text-align: left;}
+.text-right{text-align: right;}
+.text-w900{font-weight: 900;}
+.text-w300{font-weight: 300;}
+.text-w100{font-weight: 100;}
 a{
     color: #333;
     text-decoration: none;
@@ -43,9 +44,15 @@ a{
         text-decoration: none;
     }
 }
+.top-bar{
+    margin-bottom: 50px;
+    h1{
+        display: inline-block;
+    }
+}
 img.logo{
     width: 200px;
-    margin: 50px 0;
+    margin-top: 50px;
 }
 
 #masonry-container {
@@ -62,3 +69,15 @@ img.logo{
 .clearfix:after { clear: both; }
 .clearfix { zoom: 1; }
 .centered { margin: 0 auto; }
+#devlogo{
+    position: absolute;
+    width: 64px;
+    height: 64px;
+    left: 8px;
+    top: 8px;
+    opacity: .2;
+    transition: opacity 10s ease;
+    &:hover{
+        opacity: 1;
+    }
+}

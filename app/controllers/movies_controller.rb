@@ -1,12 +1,12 @@
 class MoviesController < ApplicationController
-    
     def index
-        params.permit(:year, :genre, :rating, :quality, :page)
+        params.permit(:year, :genre, :rating, :quality, :page, :q, :id, :sort, :order)
         ytsBaseURI = "https://yts.ag/api/v2/list_movies.json"
         
         limitKey = "?limit=" + "20"
         
-        pageKey, yearKey, qualityKey, genreKey, ratingKey = ""
+        queryKey, sortKey, orderKey, pageKey, yearKey, qualityKey, genreKey, ratingKey = ""
+        
         if params[:page]
             pageKey = "&page=" + params[:page]
             @current_page = params[:page].to_i
@@ -14,39 +14,58 @@ class MoviesController < ApplicationController
             pageKey = ""
             @current_page = 1
         end
-        if params[:year] != ""
+        if params[:year]
             yearKey = "&query_term=" + params[:year].to_s
         else
             yearKey = ""
         end
-        if params[:quality] != ""
+        if params[:quality]
             qualityKey = "&quality=" + params[:quality].to_s
         else
             qualityKey = ""
         end
-        if params[:genre] != ""
+        if params[:genre]
             genreKey = "&genre=" + params[:genre].to_s
         else
             genreKey = ""
         end
-        if params[:rating] != ""
+        if params[:rating]
             ratingKey = "&minimum_rating=" + params[:rating].to_s
         else
             ratingKey = ""
         end
-        
-        queryKey = "&query_term="
-        sortKey = "&sort_by="
-        orderKey = "&order_by="
-        
-        ytsURI = ytsBaseURI + limitKey + yearKey + qualityKey + genreKey + ratingKey + pageKey
+        if params[:q]
+            queryKey = "&query_term=" + params[:q].to_s
+        else
+            queryKey = ""
+        end
+        if params[:sort]
+            sortKey = "&sort_by=" + params[:sort].to_s
+        else
+            sortKey = ""
+        end
+        if params[:order]
+            orderKey = "&order_by=" + params[:order].to_s
+        else
+            orderKey = ""
+        end
+
+        ytsURI = ytsBaseURI + limitKey + yearKey + qualityKey + genreKey + ratingKey + pageKey + queryKey + sortKey + orderKey
         response = Net::HTTP.get_response(URI.parse(ytsURI))
         result = JSON.parse(response.body)
         page_count = result["data"]["movie_count"].to_i / result["data"]["limit"].to_i + 1
         @last_page = page_count
         @uri = ytsURI
         @movies = result["data"]["movies"]
-        
+        @sorts = [
+            "rating",
+            "year",
+            "title",
+            ]
+        @orders = [
+            "ASC",
+            "DESC"
+            ]
         @qualities = [
             "720p",
             "1080p",
@@ -89,38 +108,12 @@ class MoviesController < ApplicationController
         @min_year = 1918
         @max_year = 2016
     end
-
-    def suckyts
-        
+    
+    def show
+        ytsBaseURI = "https://yts.ag/api/v2/movie_details.json?with_images=true&with_cast=true&movie_id="
+        ytsURI = ytsBaseURI = ytsBaseURI + params[:id]
         response = Net::HTTP.get_response(URI.parse(ytsURI))
-        results = JSON.parse(response.body)["data"]["movies"]
-        @result = results
-        $i = 2
-        $num = 117
-        while $i < $num  do
-            ytsURI = "https://yts.ag/api/v2/list_movies.json?limit=50&page=" + $i.to_s
-            response = Net::HTTP.get_response(URI.parse(ytsURI))
-            results = JSON.parse(response.body)["data"]["movies"]
-            @result = @result | results  
-            $i += 1
-        end
-        
-        @result.each do |nyts|
-            @movie = Movie.new
-            @movie.title = nyts["title"]
-            @movie.year = nyts["year"]
-            @movie.rating = nyts["rating"]
-            @movie.runtime = nyts["runtime"]
-            @movie.genres = nyts["genres"]
-            @movie.summary = nyts["summary"]
-            @movie.language = nyts["language"]
-            @movie.poster = nyts["large_cover_image"]
-            @movie.background = nyts["background_image"]
-            @movie.imdb = nyts["imdb_code"]
-            @movie.torrents = nyts["torrents"]
-            @movie.save
-        end
-        
-        @value = Movie.count
+        result = JSON.parse(response.body)
+        @movie = result["data"]["movie"]
     end
 end

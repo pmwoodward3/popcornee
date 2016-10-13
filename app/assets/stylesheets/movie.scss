@@ -1,0 +1,155 @@
+.columns.movie-details{
+    margin: 0;
+    .column{
+        .panel{
+            border-radius: 20px;
+            overflow: hidden;
+            border: none;
+            background: white;
+            .panel-heading{
+                padding: 0;
+                border: none;
+                border-radius: 0;
+                overflow: hidden;
+                line-height: 0;
+                .movie-poster{
+                    max-width: 100%;
+                    max-height: 100%;
+                    width: 100%;
+                    height: 100%;
+                    background-image: url(http://placehold.it/250x375);
+                    color: #888;
+                    text-align: center;
+                    margin: 0;
+                }
+            }
+            .panel-body{
+                position: relative;
+                background: transparent;
+                padding: 20px;
+                text-align: center;
+                h1{
+                    display: inline-block;
+                    font-weight: 100;
+                    font-size: 30pt;
+                }
+                h2{
+                    font-weight: 400;
+                    font-size: 20pt;
+                    letter-spacing: -3px;
+                }
+                p{
+                    font-weight: 200;
+                    font-size: 15pt;
+                    color: #666;
+                    text-align: left;
+                    padding: 15px;
+                }
+                .rating{
+                    font-size: 12pt;
+                    text-align: center;
+                    font-weight: bold;
+                    color: #fba400;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+                .label-genre{
+                    background: transparent;
+                    color: #888;
+                    font-weight: 200;
+                    letter-spacing: 0;
+                    font-size: 17pt;
+                    padding: 5px;
+                    display: block;
+                    &:hover{
+                        color: #333;
+                        font-weight: 500;
+                    }
+                }
+                .pg{
+                    a{
+                        color: #888;
+                        border: 1px solid #888;
+                        box-sizing: border-box;
+                        background: white;
+                        display: inline-block;
+                        border-radius: 10px;
+                        font-weight: 400;
+                        padding: 5px;
+                        margin: 5px 0;
+                        &:hover{
+                            background: #333;
+                            color: white;
+                        }
+                    }
+                }
+            }
+            .columns.cast{
+                .column{
+                    padding: 10px;
+                    img.cast-avatar{
+                        border-radius: 100%;
+                        border: none;
+                        margin-top: -7px;
+                        background: #ccc;
+                        background-image: url(http://placehold.it/64x64);
+                    }
+                    .cast-name, .cast-alias{
+                        display: block;
+                        position: relative;
+                        line-height: 22px;
+                        font-size: 15pt;
+                    }
+                    .cast-name{
+                        font-weight: 400;
+                    }
+                    .cast-alias{
+                        font-weight: 300;
+                        &:before{
+                            content: 'as ';
+                            font-weight: 200;
+                        }
+                    }
+                    
+                }
+            }
+        }
+        .video-details{
+            span{
+                font-size: 15pt
+            }
+        }
+        .link-group{
+            width: 100%;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+            .dl-link{
+                display: inline-block;
+                padding: 0;
+                width: 60px;
+                height: 60px;
+                text-align: center;
+                border-radius: 100%;
+                line-height: 60px;
+                margin: 5px;
+                font-size: 14pt;
+                font-weight: 300;
+                background: white;
+                color: #333;
+                border: none;
+                &:hover{
+                    color: white;
+                    background: #333;
+                }
+            }
+        }
+        .movie-poster{
+            border-radius: 10px;
+            margin: 20px 0;
+            background-image: url(http://placehold.it/250x375);
+            color: #888;
+            text-align: center;
+        }
+    }
+}

@@ -9,13 +9,19 @@
         = render 'favicon'
     - if params[:genre]
         %body{:class => params[:genre].capitalize}
-            .text-center
+            %img#devlogo{:src => image_url("developer.svg")}
+            .top-bar.text-center
                 =link_to root_path do
                     %img.logo{:src => image_url("popcorn.svg")}
+                    %br
+                    %h1.title.is-1.text-w900 Popcornee
             = yield 
     - else
         %body
-            .text-center
+            %img#devlogo{:src => image_url("developer.svg")}
+            .top-bar.text-center
                 =link_to root_path do
                     %img.logo{:src => image_url("popcorn.svg")}
+                    %br
+                    %h1.title.is-1.text-w900 Popcornee
             = yield 

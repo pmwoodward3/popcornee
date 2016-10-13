@@ -2,3 +2,12 @@
 - if @movies
     = render 'pagination/pagination-bar'
     = render 'movies'
+- else
+    %br
+    .columns
+        .column.is-8.is-offset-2
+            .notification.is-warning
+                .title.is-3.text-center.text-w900
+                    %i.fa.fa-exclamation.fa-lg
+                    %br
+                    Nothing was found, Sorry.
