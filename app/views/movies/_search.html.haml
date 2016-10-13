@@ -1,0 +1,28 @@
+%form.control.has-addons.has-addons-centered{:role => 'search', :method => 'get'}
+    %input.input.is-large{:name => "year", :type => "number", :min => @min_year, :max => @max_year, :step => 1, :placeholder => "Year?", :value => params[:year]}
+    %span.select.is-large
+        %select#rating{:name => "rating"}
+            %option{:value => ""} Rating?
+            - @ratings.each do |rating|
+                - if params[:rating] == rating
+                    %option{:value => rating, :selected => true}= rating + "+"
+                - else
+                    %option{:value => rating, :selected => false}= rating + "+"
+    %span.select.is-large
+        %select#genre{:name => "genre"}
+            %option{:value => ""} Genre?
+            - @genres.each do |genre|
+                - if params[:genre] == genre
+                    %option{:value => genre, :selected => true}= genre
+                - else
+                    %option{:value => genre, :selected => false}= genre
+    %span.select.is-large
+        %select#quality{:name => "quality"}
+            %option{:value => ""} Quality?
+            - @qualities.each do |quality|
+                - if params[:quality] == quality
+                    %option{:value => quality, :selected => true}= quality
+                - else
+                    %option{:value => quality, :selected => false}= quality
+    %button.button.is-large{:type => "submit", :value => "submit", "data-disable-with" => "Wait!"}
+        %i.fa.fa-refresh.fa-fw

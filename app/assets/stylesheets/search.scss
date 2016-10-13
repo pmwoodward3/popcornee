@@ -1,0 +1,17 @@
+.control{
+    .input, .select > select{
+        border: none;
+        background: white;
+        border-radius: 0;
+        font-weight: 200;
+    }
+    .button{
+        background: white;
+        color: #333;
+        border: none;
+        &:hover{
+            background: #333;
+            color: white;
+        }
+    }
+}
