@@ -58,7 +58,7 @@
             }
             .label-genre{
                 background: transparent;
-                color: #aaa;
+                color: #888;
                 font-weight: 200;
                 letter-spacing: 0;
                 font-size: 14pt;
@@ -70,8 +70,8 @@
                 }
             }
             .pg{
-                color: #aaa;
-                border: 1px solid #bbb;
+                color: #888;
+                border: 1px solid #888;
                 box-sizing: border-box;
                 background: white;
                 display: inline-block;
@@ -108,14 +108,13 @@
             line-height: 60px;
             margin: 5px;
             font-size: 14pt;
-            font-weight: 100;
+            font-weight: 300;
             background: white;
-            box-shadow: 0 0 0 0 #DE9A3A;
-            transition: background .3s ease, box-shadow .1s ease;
+            color: #333;
+            border: none;
             &:hover{
                 color: white;
-                background: linear-gradient(to bottom,#F5B146,#DE9A3A);
-                box-shadow: 0 0 0 1px #DE9A3A;
+                background: #333;
             }
         }
     }

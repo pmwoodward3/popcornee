@@ -46,6 +46,48 @@ class MoviesController < ApplicationController
         @last_page = page_count
         @uri = ytsURI
         @movies = result["data"]["movies"]
+        
+        @qualities = [
+            "720p",
+            "1080p",
+            "3D"
+            ]
+        @genres = [
+            "Action",
+            "Adventure",
+            "Biography",
+            "Comdey",
+            "Crime",
+            "Documentary",
+            "Drama",
+            "Family",
+            "Fantasy",
+            "Film-Noir",
+            "History",
+            "Horror",
+            "Music",
+            "Musical",
+            "Mystery",
+            "Romance",
+            "Sci-Fi",
+            "Sport",
+            "Thriller",
+            "War",
+            "Western"
+            ]
+        @ratings = [
+            "9",
+            "8",
+            "7",
+            "6",
+            "5",
+            "4",
+            "3",
+            "2",
+            "1",
+            ]
+        @min_year = 1918
+        @max_year = 2016
     end
 
     def suckyts
