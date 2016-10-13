@@ -1,4 +1,7 @@
-.control{
+.search.control{
+    .input{
+        width: 130px !important;
+    }
     .input, .select > select{
         border: none;
         background: white;
