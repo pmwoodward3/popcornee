@@ -14,7 +14,7 @@
                         = link_to "http://www.imdb.com/title/"+movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
                             .star-rating{:class => "rate"+(movie["rating"]*10).to_i.to_s}
                             %span.rating= movie["rating"]
-                        = link_to "http://www.imdb.com/title/"+movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
+                        = link_to "http://www.imdb.com/title/"+movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "Parental Guidance"} do
                             .pg PG
                         - movie["genres"].each do |moviegenres|
                             = link_to :genre => moviegenres do
