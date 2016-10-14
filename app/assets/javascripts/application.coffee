@@ -27,4 +27,5 @@ $ ->
         $($(this).attr('data-target')).addClass 'is-active'
     $('.modal-close').click ->
         $('.modal').removeClass 'is-active'
-    return
+    $('.submit-button').click ->
+        $($(this)).addClass 'is-loading'

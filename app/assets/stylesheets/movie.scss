@@ -119,35 +119,35 @@
                     color: #CA1C26;
                 }
             }
-            .columns.cast{
-                .column{
-                    padding: 10px;
-                    img.cast-avatar{
-                        width: 64px;
-                        height: 64px;
-                        border-radius: 100%;
-                        border: none;
-                        margin-top: -7px;
-                        background: #ccc;
-                        background-image: url(http://placehold.it/64x64);
-                    }
-                    .cast-name, .cast-alias{
-                        display: block;
-                        position: relative;
-                        line-height: 22px;
-                        font-size: 15pt;
-                    }
-                    .cast-name{
-                        font-weight: 400;
-                    }
-                    .cast-alias{
-                        font-weight: 300;
-                        &:before{
-                            content: 'as ';
-                            font-weight: 200;
+            table{
+                margin: 0;
+                tbody{
+                    tr.cast{
+                        td{
+                            vertical-align: middle;
+                            border: none;
+                            text-align: center;
+                            font-size: 12pt;
+                            font-weight: 400;
+                        }
+                        td.cast-name, td.cast-alias{
+                            font-size: 15pt;
+                            font-weight: 300;
+                        }
+                        td.cast-avatar{
+                            a{
+                                img{
+                                    max-width: 64px;
+                                    width: 64px;
+                                    height: 64px;
+                                    border-radius: 100%;
+                                    border: none;
+                                    background: #ccc;
+                                    background-image: url(http://placehold.it/64x64);
+                                }
+                            }
                         }
                     }
-                    
                 }
             }
         }

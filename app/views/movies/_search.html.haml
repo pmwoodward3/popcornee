@@ -1,7 +1,7 @@
 %form{:role => 'search', :method => 'get'}
     .search.control.has-addons.has-addons-centered
         %input#query.input.is-large{:name => "q", :type => "text", :placeholder => "Search a movie name? actor? ... not too specific!", :value => params[:q]}
-        %button.button.is-large{:type => "submit", :value => "submit", "data-disable-with" => "Wait!"}
+        %button.button.submit-button.is-large{:type => "submit", :value => "submit"}
             %i.fa.fa-search.fa-fw
 %br
 %h3.title.is-3.text-center
@@ -33,5 +33,5 @@
                         %option{:value => quality, :selected => true}= quality
                     - else
                         %option{:value => quality, :selected => false}= quality
-        %button.button.is-large{:type => "submit", :value => "submit", "data-disable-with" => "Wait!"}
+        %button.button.submit-button.is-large{:type => "submit", :value => "submit"}
             %i.fa.fa-refresh.fa-fw

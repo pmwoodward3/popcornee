@@ -31,16 +31,18 @@
     .column.is-5
         - if @movie["cast"]
             .panel
-                .panel-body
-                    .columns.is-gapless.is-mobile.is-multiline.cast
+                %table.table.is-striped
+                    %tbody
                         - @movie["cast"].each do |cast|
-                            .column.is-5.text-right
-                                = link_to "http://www.imdb.com/name/nm"+cast["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
-                                    %img.cast-avatar{:src => cast["url_small_image"], :height => "64px", :width => "64px"}
-                            .column.is-7.text-left
-                                .cast-name
+                            %tr.cast
+                                %td.cast-avatar
+                                    = link_to "http://www.imdb.com/name/nm"+cast["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
+                                        %img{:src => cast["url_small_image"], :height => "64px", :width => "64px"}
+                                %td.cast-name
                                     = cast["name"]
-                                .cast-alias
+                                %td
+                                    as
+                                %td.cast-alias
                                     = cast["character_name"]
         - if @movie["description_full"]
             .panel
@@ -76,21 +78,22 @@
                         %button.modal-close
                     
     .column.is-2
-        .panel
-            .panel-body.video-details
-                .columns.is-gapless.is-mobile.is-multiline
-                    - if @movie["language"]
-                        .column.is-12.text-center
-                            %i.fa.fa-language.fa-lg.fa-fw
-                        .column.is-12.text-center.text-w300
-                            %span= @movie["language"]
-                        %br
-                        %br
-                    - if @movie["runtime"]
-                        .column.is-12.text-center
-                            %i.fa.fa-clock-o.fa-lg.fa-fw
-                        .column.is-12.text-center.text-w300
-                            %span= @movie["runtime"].to_s+"'"
+        - if @movie["language"] || @movie["runtime"]
+            .panel
+                .panel-body.video-details
+                    .columns.is-gapless.is-mobile.is-multiline
+                        - if @movie["language"]
+                            .column.is-12.text-center
+                                %i.fa.fa-language.fa-lg.fa-fw
+                            .column.is-12.text-center.text-w300
+                                %span= @movie["language"]
+                            %br
+                        - if @movie["runtime"] && @movie["runtime"]!=0
+                            %br
+                            .column.is-12.text-center
+                                %i.fa.fa-clock-o.fa-lg.fa-fw
+                            .column.is-12.text-center.text-w300
+                                %span= @movie["runtime"].to_s+"'"
         - if @movie["torrents"]
             .link-group
                 - @movie["torrents"].each do |torrent|
