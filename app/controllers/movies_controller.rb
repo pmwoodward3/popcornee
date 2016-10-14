@@ -56,6 +56,8 @@ class MoviesController < ApplicationController
         page_count = result["data"]["movie_count"].to_i / result["data"]["limit"].to_i + 1
         @last_page = page_count
         @uri = ytsURI
+        @status = result["status"]
+        @status_message = result["status_message"]
         @movies = result["data"]["movies"]
         @sorts = [
             "rating",
@@ -114,6 +116,8 @@ class MoviesController < ApplicationController
         ytsURI = ytsBaseURI = ytsBaseURI + params[:id]
         response = Net::HTTP.get_response(URI.parse(ytsURI))
         result = JSON.parse(response.body)
+        @status = result["status"]
+        @status_message = result["status_message"]
         @movie = result["data"]["movie"]
     end
 end

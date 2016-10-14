@@ -1,54 +1,13 @@
-.columns.movie-details
-    .column.is-3.is-offset-1
-        .panel
-            .panel-body
-                %h1= @movie["title"]
-                = link_to :year => @movie["year"], :action => "index" do
-                    %h2= @movie["year"]
-                = link_to "http://www.imdb.com/title/"+@movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
-                    .star-rating{:class => "rate"+(@movie["rating"]*10).to_i.to_s}
-                    %span.rating= @movie["rating"]
-                .pg
-                    = link_to @movie["mpa_rating"],"http://www.imdb.com/title/"+@movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "Parental Guidance"}
-                - @movie["genres"].each do |moviegenres|
-                    = link_to :genre => moviegenres, :action => "index" do
-                        .label.label-genre= moviegenres
-        .panel
-            .panel-heading
-                %img.movie-poster{:src => @movie["large_cover_image"], :alt => @movie["title"], :height => "375px", :width => "250px"}
-    .column.is-5
-        - if @movie["cast"]
-            .panel
-                .panel-body
-                    .columns.is-gapless.is-mobile.is-multiline.cast
-                        - @movie["cast"].each do |cast|
-                            .column.is-5.text-right
-                                = link_to "http://www.imdb.com/name/nm"+cast["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
-                                    %img.cast-avatar{:src => cast["url_small_image"], :height => "64px", :width => "64px"}
-                            .column.is-7.text-left
-                                .cast-name
-                                    = cast["name"]
-                                .cast-alias
-                                    = cast["character_name"]
-        .panel
-            .panel-body
-                %p= @movie["description_full"]
-    .column.is-2
-        .panel
-            .panel-body.video-details
-                .columns.is-gapless.is-mobile.is-multiline
-                    .column.is-12.text-center
-                        %i.fa.fa-language.fa-lg.fa-fw
-                    .column.is-12.text-center.text-w300
-                        %span= @movie["language"]
+- if @status == "ok"
+    = render 'movie'
+- else
+    %br
+    .columns
+        .column.is-8.is-offset-2
+            .notification.is-danger
+                .title.is-3.text-center.text-w900
+                    %i.fa.fa-exclamation.fa-lg
                     %br
+                    Something went wrong!
                     %br
-                    .column.is-12.text-center
-                        %i.fa.fa-clock-o.fa-lg.fa-fw
-                    .column.is-12.text-center.text-w300
-                        %span= @movie["runtime"].to_s+"'"
-        .link-group
-            - @movie["torrents"].each do |torrent|
-                = link_to torrent["url"] do
-                    .dl-link= torrent["quality"]
-                    .dl-size= torrent["size"]
+                    Database could not be reached.

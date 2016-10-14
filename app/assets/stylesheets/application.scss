@@ -26,6 +26,7 @@
 body{
     margin: 0;
     padding: 0;
+    padding-bottom: 150px;
     overflow-y: visible !important;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
     background: #f7b239;
@@ -75,9 +76,10 @@ img.logo{
     height: 64px;
     left: 8px;
     top: 8px;
-    opacity: .2;
-    transition: opacity 10s ease;
+    opacity: .1;
+    transition: opacity 1s ease;
     &:hover{
         opacity: 1;
+        transition: opacity 10s ease;
     }
 }

@@ -23,4 +23,8 @@ $ ->
         isInitLayout: false
         isAnimated: !Modernizr.csstransitions
         isFitWidth: true
+    $('.modal-button').click ->
+        $($(this).attr('data-target')).addClass 'is-active'
+    $('.modal-close').click ->
+        $('.modal').removeClass 'is-active'
     return
