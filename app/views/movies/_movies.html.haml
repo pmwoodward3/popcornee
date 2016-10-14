@@ -5,7 +5,7 @@
                 .panel
                     .panel-heading
                         = link_to :id => movie["id"], :action => "show" do
-                            %img.movie-poster{:src => movie["large_cover_image"], :alt => movie["title"], :height => "375px", :width => "250px"}
+                            %img.movie-poster{:src => movie["medium_cover_image"], :alt => movie["title"], :height => "375px", :width => "250px"}
                     .panel-body
                         = link_to :id => movie["id"], :action => "show" do
                             %h1= movie["title"]

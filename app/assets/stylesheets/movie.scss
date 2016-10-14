@@ -87,6 +87,9 @@
             }
             .screenshots{
                 line-height: 0;
+                .screenshot{
+                    width: 100%;
+                }
             }
             .trailer-bg{
                 background-size: cover;
@@ -116,6 +119,8 @@
                 .column{
                     padding: 10px;
                     img.cast-avatar{
+                        width: 64px;
+                        height: 64px;
                         border-radius: 100%;
                         border: none;
                         margin-top: -7px;

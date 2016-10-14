@@ -50,11 +50,11 @@
             .panel
                 .screenshots
                     %a.modal-button{"data-target" => ".modal-screenshot1"}
-                        %img.screenshot{:src => @movie["large_screenshot_image1"]}
+                        %img.screenshot{:src => @movie["medium_screenshot_image1"]}
                     %a.modal-button{"data-target" => ".modal-screenshot2"}
-                        %img.screenshot{:src => @movie["large_screenshot_image2"]}
+                        %img.screenshot{:src => @movie["medium_screenshot_image2"]}
                     %a.modal-button{"data-target" => ".modal-screenshot3"}
-                        %img.screenshot{:src => @movie["large_screenshot_image3"]}
+                        %img.screenshot{:src => @movie["medium_screenshot_image3"]}
 
                     .modal-screenshot1.modal
                         .modal-background
@@ -66,13 +66,13 @@
                         .modal-background
                         .modal-content
                             %p.image
-                                %img.screenshot{:src => @movie["large_screenshot_image1"]}
+                                %img.screenshot{:src => @movie["large_screenshot_image2"]}
                         %button.modal-close
                     .modal-screenshot3.modal
                         .modal-background
                         .modal-content
                             %p.image
-                                %img.screenshot{:src => @movie["large_screenshot_image1"]}
+                                %img.screenshot{:src => @movie["large_screenshot_image3"]}
                         %button.modal-close
                     
     .column.is-2
