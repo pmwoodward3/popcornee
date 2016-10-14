@@ -89,6 +89,10 @@
                 line-height: 0;
                 .screenshot{
                     width: 100%;
+                    opacity: 1;
+                    &:hover{
+                        opacity: .7;
+                    }
                 }
             }
             .trailer-bg{

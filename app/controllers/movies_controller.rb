@@ -77,7 +77,7 @@ class MoviesController < ApplicationController
             "Action",
             "Adventure",
             "Biography",
-            "Comdey",
+            "Comedy",
             "Crime",
             "Documentary",
             "Drama",
