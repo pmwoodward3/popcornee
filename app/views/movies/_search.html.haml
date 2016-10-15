@@ -1,6 +1,24 @@
 %form{:role => 'search', :method => 'get'}
     .search.control.has-addons.has-addons-centered
-        %input#query.input.is-large{:name => "q", :type => "text", :placeholder => "Search a movie name? actor? ... not too specific!", :value => params[:q]}
+        %input#query.input.is-large{:name => "q", :type => "text", :placeholder => "Search a keyword. Batman? Zombie? Dead? ... not too specific!", :value => params[:q]}
+        %span.select.is-large
+            %select#sort{:name => "sort"}
+                %option{:value => ""} by Latest
+                - @sorts.each do |sort|
+                    - if params[:sort] == sort
+                        - if params[:sort] == "title"
+                            %option{:value => sort, :selected => true} Alphabetical
+                        - if params[:sort] == "rating"
+                            %option{:value => sort, :selected => true} by Rating
+                        - if params[:sort] == "year"
+                            %option{:value => sort, :selected => true} by Year
+                    - else
+                        - if sort == "title"
+                            %option{:value => sort, :selected => false} Alphabetical
+                        - if sort == "rating"
+                            %option{:value => sort, :selected => false} by Rating
+                        - if sort == "year"
+                            %option{:value => sort, :selected => false} by Year
         %button.button.submit-button.is-large{:type => "submit", :value => "submit"}
             %i.fa.fa-search.fa-fw
 %br
@@ -33,5 +51,23 @@
                         %option{:value => quality, :selected => true}= quality
                     - else
                         %option{:value => quality, :selected => false}= quality
+        %span.select.is-large
+            %select#sort{:name => "sort"}
+                %option{:value => ""} by Latest
+                - @sorts.each do |sort|
+                    - if params[:sort] == sort
+                        - if params[:sort] == "title"
+                            %option{:value => sort, :selected => true} Alphabetical
+                        - if params[:sort] == "rating"
+                            %option{:value => sort, :selected => true} by Rating
+                        - if params[:sort] == "year"
+                            %option{:value => sort, :selected => true} by Year
+                    - else
+                        - if sort == "title"
+                            %option{:value => sort, :selected => false} Alphabetical
+                        - if sort == "rating"
+                            %option{:value => sort, :selected => false} by Rating
+                        - if sort == "year"
+                            %option{:value => sort, :selected => false} by Year
         %button.button.submit-button.is-large{:type => "submit", :value => "submit"}
             %i.fa.fa-refresh.fa-fw
