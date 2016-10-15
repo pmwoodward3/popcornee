@@ -1,8 +1,7 @@
 .columns.movie-details.is-marginless
-    .column.is-3.is-offset-1
+    .column.is-3.is-offset-1.is-10-mobile.is-offset-1-mobile
         .panel
             .panel-body
-                = @movie["writer"]
                 %h1= @movie["title"]
                 = link_to :year => @movie["year"], :action => "index" do
                     %h2= @movie["year"]
@@ -29,7 +28,7 @@
                     .modal-content
                         %iframe{:src => "https://www.youtube.com/embed/"+@movie["yt_trailer_code"], :width => "640", :height => "390", :allowfullscreen => "", :frameborder => "0"}
                     %button.modal-close            
-    .column.is-5
+    .column.is-5.is-10-mobile.is-offset-1-mobile
         - if @movie["description_full"]
             .panel
                 .panel-body
