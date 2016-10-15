@@ -1,11 +1,13 @@
-- if @status == "ok"
+- if @movie_status == "ok"
     = render 'movie'
+    - if @suggestions_status == "ok" && @suggestions
+        = render 'suggestions'
 - else
     %br
     .columns
         .column.is-8.is-offset-2
             .notification.is-danger
-                .title.is-3.text-center.text-w900
+                .title.is-3.has-text-centered.has-weight-900
                     %i.fa.fa-exclamation.fa-lg
                     %br
                     Something went wrong!

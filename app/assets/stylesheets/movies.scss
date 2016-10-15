@@ -1,6 +1,5 @@
 .movie-box{
     width: 250px;
-    padding: 0;
     margin: 20px;
     line-height: normal;
     border: none;
@@ -10,7 +9,7 @@
         overflow: hidden;
         border: none;
         background: white;
-        margin: 20px 0;
+        margin-bottom: 20px;
         .panel-heading{
             padding: 0;
             border: none;
@@ -32,12 +31,12 @@
             h1{
                 text-align: left;
                 display: inline-block;
-                font-weight: 100;
+                font-weight: 300;
                 font-size: 30pt;
             }
             p{
                 font-weight: 200;
-                font-size: 13pt;
+                font-size: 15pt;
                 color: #666;
             }
         }
@@ -68,7 +67,8 @@
                 padding: 5px;
                 display: block;
                 &:hover{
-                    color: #333;
+                    color: white;
+                    background: #333;
                     font-weight: 500;
                 }
             }
@@ -94,7 +94,6 @@
     .link-group{
         width: 100%;
         padding: 0;
-        margin: 0;
         margin-top: -15px;
         text-align: center;
         .dl-link{

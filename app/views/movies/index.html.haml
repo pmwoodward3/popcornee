@@ -1,14 +1,14 @@
 = render 'search'
-- if @status == "ok"
+- if @list_status == "ok"
     - if @movies
-        = render 'pagination/pagination-bar'
+        = render 'pagination-bar'
         = render 'movies'
     - else
         %br
         .columns
             .column.is-8.is-offset-2
                 .notification.is-warning
-                    .title.is-3.text-center.text-w900
+                    .title.is-3.has-text-centered.has-weight-900
                         %i.fa.fa-exclamation.fa-lg
                         %br
                         Nothing was found, Sorry.
@@ -17,7 +17,7 @@
     .columns
         .column.is-8.is-offset-2
             .notification.is-danger
-                .title.is-3.text-center.text-w900
+                .title.is-3.has-text-centered.has-weight-900
                     %i.fa.fa-exclamation.fa-lg
                     %br
                     Something went wrong!

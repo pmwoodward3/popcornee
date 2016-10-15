@@ -10,18 +10,18 @@
     - if params[:genre]
         %body{:class => params[:genre].capitalize}
             %img#devlogo{:src => image_url("developer.svg")}
-            .top-bar.text-center
+            .top-bar.has-text-centered
                 =link_to root_path do
-                    %img.logo{:src => image_url("popcorn.svg")}
+                    %img.logo{:src => image_url("popcornee-logo.svg")}
                     %br
-                    %h1.title.is-1.text-w900 Popcornee
+                    %img{:src => image_url("popcornee-title.svg"), :width => "200px"}
             = yield 
     - else
         %body
             %img#devlogo{:src => image_url("developer.svg")}
-            .top-bar.text-center
+            .top-bar.has-text-centered
                 =link_to root_path do
-                    %img.logo{:src => image_url("popcorn.svg")}
+                    %img.logo{:src => image_url("popcornee-logo.svg")}
                     %br
-                    %h1.title.is-1.text-w900 Popcornee
+                    %img{:src => image_url("popcornee-title.svg"), :width => "200px"}
             = yield 

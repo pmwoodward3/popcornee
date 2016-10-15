@@ -1,15 +1,21 @@
+%br
+%br
+%br
+.title.is-3.has-text-centered
+    Similar Movies
+    %br
+    %i.fa.fa-chevron-down.fa-lg
 #masonry-container.transitions-enabled.centered.clearfix.infinite-scroll.masonry
-    - @movies.each do |movie|
+    - @suggestions.each do |movie|
         - if movie["torrents"]
-            .movie-box.is-paddingless{:id => movie["id"]}
-                .panel.is-marginless
+            .movie-box{:id => movie["id"]}
+                .panel
                     .panel-heading
                         = link_to :id => movie["id"], :action => "show" do
                             %img.movie-poster{:src => movie["medium_cover_image"], :alt => movie["title"], :height => "375px", :width => "250px"}
                     .panel-body
                         = link_to :id => movie["id"], :action => "show" do
                             %h1= movie["title"]
-                        %p= truncate(movie["summary"], length: 300, separator: ' ')
                     .panel-footer
                         = link_to :year => movie["year"] do
                             %h2= movie["year"]
@@ -21,7 +27,3 @@
                         - movie["genres"].each do |moviegenres|
                             = link_to :genre => moviegenres do
                                 .label.label-genre= moviegenres
-                .link-group.is-marginless
-                    - movie["torrents"].each do |torrent|
-                        = link_to torrent["url"] do
-                            .dl-link= torrent["quality"]

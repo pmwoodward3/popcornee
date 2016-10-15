@@ -1,7 +1,8 @@
-.columns.movie-details
+.columns.movie-details.is-marginless
     .column.is-3.is-offset-1
         .panel
             .panel-body
+                = @movie["writer"]
                 %h1= @movie["title"]
                 = link_to :year => @movie["year"], :action => "index" do
                     %h2= @movie["year"]
@@ -15,23 +16,27 @@
                         .label.label-genre= moviegenres
         - if @movie["large_cover_image"]
             .panel
-                .panel-heading
-                    %img.movie-poster{:src => @movie["large_cover_image"], :alt => @movie["title"], :height => "375px", :width => "250px"}
+                .panel-heading.is-paddingless
+                    %img.movie-poster.is-marginless{:src => @movie["large_cover_image"], :alt => @movie["title"], :height => "375px", :width => "250px"}
         - if @movie["yt_trailer_code"]
             .panel
                 .trailer-bg{:style => "background-image:url("+@movie["medium_cover_image"]+")"}
                 %a.trailer-button.modal-button{"data-target" => ".modal-trailer"}
                     %i.fa.fa-youtube-play.fa-5x.fa-fw
-                    .title.is-3.text-center Trailer
+                    .title.is-3.has-text-centered Trailer
                 .modal-trailer.modal
                     .modal-background
                     .modal-content
                         %iframe{:src => "https://www.youtube.com/embed/"+@movie["yt_trailer_code"], :width => "640", :height => "390", :allowfullscreen => "", :frameborder => "0"}
                     %button.modal-close            
     .column.is-5
+        - if @movie["description_full"]
+            .panel
+                .panel-body
+                    %p= @movie["description_full"]
         - if @movie["cast"]
             .panel
-                %table.table.is-striped
+                %table.table.is-striped.is-marginless
                     %tbody
                         - @movie["cast"].each do |cast|
                             %tr.cast
@@ -44,10 +49,6 @@
                                     as
                                 %td.cast-alias
                                     = cast["character_name"]
-        - if @movie["description_full"]
-            .panel
-                .panel-body
-                    %p= @movie["description_full"]
         - if @movie["large_screenshot_image1"]
             .panel
                 .screenshots
@@ -77,26 +78,33 @@
                                 %img{:src => @movie["large_screenshot_image3"]}
                         %button.modal-close
                     
-    .column.is-2
+    .column.is-2.is-half-mobile.is-offset-3-mobile
         - if @movie["language"] || @movie["runtime"]
             .panel
                 .panel-body.video-details
                     .columns.is-gapless.is-mobile.is-multiline
                         - if @movie["language"]
-                            .column.is-12.text-center
-                                %i.fa.fa-language.fa-lg.fa-fw
-                            .column.is-12.text-center.text-w300
+                            .column.is-12.has-text-centered
+                                %i.fa.fa-volume-up.fa-lg.fa-fw
+                            .column.is-12.has-text-centered.has-weight-300
                                 %span= @movie["language"]
                             %br
                         - if @movie["runtime"] && @movie["runtime"]!=0
                             %br
-                            .column.is-12.text-center
+                            .column.is-12.has-text-centered
                                 %i.fa.fa-clock-o.fa-lg.fa-fw
-                            .column.is-12.text-center.text-w300
+                            .column.is-12.has-text-centered.has-weight-300
                                 %span= @movie["runtime"].to_s+"'"
         - if @movie["torrents"]
-            .link-group
+            .link-group.is-marginless.is-paddingless
                 - @movie["torrents"].each do |torrent|
                     = link_to torrent["url"] do
-                        .dl-link= torrent["quality"]
-                        .dl-size= torrent["size"]
+                        .dl-link
+                            = torrent["quality"]
+                        .dl-desc
+                            = torrent["size"]
+                = link_to "http://www.yifysubtitles.com/movie-imdb/"+@movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "YifySubtitles"} do
+                    .dl-link
+                        %i.fa.fa-cc.fa-lg.fa
+                    .dl-desc
+                        Subtitle

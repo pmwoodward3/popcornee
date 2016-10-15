@@ -1,72 +1,95 @@
 class MoviesController < ApplicationController
     def index
+        uris
+        filters
         params.permit(:year, :genre, :rating, :quality, :page, :q, :id, :sort, :order)
-        ytsBaseURI = "https://yts.ag/api/v2/list_movies.json"
-        
-        limitKey = "?limit=" + "20"
-        
-        queryKey, sortKey, orderKey, pageKey, yearKey, qualityKey, genreKey, ratingKey = ""
+        limit_key = "?limit=" + "20"
         
         if params[:page] && params[:page] != ""
-            pageKey = "&page=" + params[:page]
+            page_key = "&page=" + params[:page]
             @current_page = params[:page].to_i
         else
-            pageKey = "&page=1"
+            page_key = "&page=1"
             @current_page = 1
         end
         if params[:year] && params[:year] != ""
-            yearKey = "&query_term=" + params[:year].to_s
+            year_key = "&query_term=" + params[:year].to_s
         else
-            yearKey = ""
+            year_key = ""
         end
         if params[:quality] && params[:quality] != ""
-            qualityKey = "&quality=" + params[:quality].to_s
+            quality_key = "&quality=" + params[:quality].to_s
         else
-            qualityKey = ""
+            quality_key = ""
         end
         if params[:genre] && params[:genre] != ""
-            genreKey = "&genre=" + params[:genre].to_s
+            genre_key = "&genre=" + params[:genre].to_s
         else
-            genreKey = ""
+            genre_key = ""
         end
         if params[:rating] && params[:rating] != ""
-            ratingKey = "&minimum_rating=" + params[:rating].to_s
+            rating_key = "&minimum_rating=" + params[:rating].to_s
         else
-            ratingKey = ""
+            rating_key = ""
         end
         if params[:q] && params[:q] != ""
-            queryKey = "&query_term=" + params[:q].to_s
+            query_key = "&query_term=" + params[:q].to_s
         else
-            queryKey = ""
+            query_key = ""
         end
         if params[:sort] && params[:sort] != ""
             if params[:sort] == "rating"
-                sortKey = "&sort_by=" + params[:sort].to_s + "&order_by=desc"
+                sort_key = "&sort_by=" + params[:sort].to_s + "&order_by=desc"
             end
             if params[:sort] == "year"
-                sortKey = "&sort_by=" + params[:sort].to_s + "&order_by=desc"
+                sort_key = "&sort_by=" + params[:sort].to_s + "&order_by=desc"
             end
             if params[:sort] == "title"
-                sortKey = "&sort_by=" + params[:sort].to_s + "&order_by=asc"
+                sort_key = "&sort_by=" + params[:sort].to_s + "&order_by=asc"
             end
         else
-            sortKey = "&sort_by=date_added&order_by=desc"
+            sort_key = "&sort_by=date_added&order_by=desc"
         end
         if params[:order] && params[:order] != ""
-            orderKey = "&order_by=" + params[:order].to_s
+            order_key = "&order_by=" + params[:order].to_s
         else
-            orderKey = ""
+            order_key = ""
         end
-
-        ytsURI = ytsBaseURI + limitKey + yearKey + qualityKey + genreKey + ratingKey + pageKey + queryKey + sortKey
-        response = Net::HTTP.get_response(URI.parse(ytsURI))
-        result = JSON.parse(response.body)
-        page_count = result["data"]["movie_count"].to_i / result["data"]["limit"].to_i + 1
+        
+        yts_list_URI = @yts_base_URI + @yts_list_req + limit_key + year_key + quality_key + genre_key + rating_key + page_key + query_key + sort_key
+        yts_list_response = Net::HTTP.get_response(URI.parse(yts_list_URI))
+        yts_list_result = JSON.parse(yts_list_response.body)
+        page_count = yts_list_result["data"]["movie_count"].to_i / yts_list_result["data"]["limit"].to_i + 1
         @last_page = page_count
-        @uri = ytsURI
-        @status = result["status"]
-        @status_message = result["status_message"]
-        @movies = result["data"]["movies"]
+        @list_status = yts_list_result["status"]
+        @list_status_message = yts_list_result["status_message"]
+        @movies = yts_list_result["data"]["movies"]
+    end
+    
+    def show        
+        uris
+        yts_movie_URI = @yts_base_URI + @yts_movie_req + params[:id]
+        yts_movie_response = Net::HTTP.get_response(URI.parse(yts_movie_URI))
+        yts_movie_result = JSON.parse(yts_movie_response.body)
+        @movie_status = yts_movie_result["status"]
+        @movie_status_message = yts_movie_result["status_message"]
+        @movie = yts_movie_result["data"]["movie"]
+        yts_suggestions_URI = @yts_base_URI + @yts_suggestions_req + params[:id]
+        yts_suggestions_response = Net::HTTP.get_response(URI.parse(yts_suggestions_URI))
+        yts_suggestions_result = JSON.parse(yts_suggestions_response.body)
+        @suggestions_status = yts_suggestions_result["status"]
+        @suggestions_status_message = yts_suggestions_result["status_message"]
+        @suggestions = yts_suggestions_result["data"]["movies"]
+    end
+    
+    private
+    def uris
+        @yts_base_URI = "https://yts.ag/api/v2/"
+        @yts_list_req = "list_movies.json"
+        @yts_suggestions_req = "movie_suggestions.json?movie_id="
+        @yts_movie_req = "movie_details.json?with_images=true&with_cast=true&movie_id="
+    end
+    def filters
         @sorts = [
             "rating",
             "year",
@@ -117,15 +140,5 @@ class MoviesController < ApplicationController
             ]
         @min_year = 1918
         @max_year = 2016
-    end
-    
-    def show
-        ytsBaseURI = "https://yts.ag/api/v2/movie_details.json?with_images=true&with_cast=true&movie_id="
-        ytsURI = ytsBaseURI = ytsBaseURI + params[:id]
-        response = Net::HTTP.get_response(URI.parse(ytsURI))
-        result = JSON.parse(response.body)
-        @status = result["status"]
-        @status_message = result["status_message"]
-        @movie = result["data"]["movie"]
     end
 end

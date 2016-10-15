@@ -1,9 +1,9 @@
 .search.control{
     #year{
-        width: 130px !important;
+        width: 115px !important;
     }
     #query{
-        width: 644px !important;
+        width: 525px !important;
     }
     .input, .select > select{
         border: none;
@@ -12,6 +12,8 @@
         font-weight: 200;
         font-size: 15pt;
         box-shadow: 0 0;
+        padding-right: 25px;
+        padding-left: 5px;
     }
     .button{
         background: white;

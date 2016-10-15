@@ -1,6 +1,6 @@
 %form{:role => 'search', :method => 'get'}
     .search.control.has-addons.has-addons-centered
-        %input#query.input.is-large{:name => "q", :type => "text", :placeholder => "Search a keyword. Batman? Zombie? Dead? ... not too specific!", :value => params[:q]}
+        %input#query.input.is-large{:name => "q", :type => "text", :placeholder => "Search a keyword. Batman?... not too specific!", :value => params[:q]}
         %span.select.is-large
             %select#sort{:name => "sort"}
                 %option{:value => ""} by Latest
@@ -22,7 +22,7 @@
         %button.button.submit-button.is-large{:type => "submit", :value => "submit"}
             %i.fa.fa-search.fa-fw
 %br
-%h3.title.is-3.text-center
+%h3.title.is-3.has-text-centered
     or
 %form{:role => 'search', :method => 'get'}
     .search.control.has-addons.has-addons-centered
