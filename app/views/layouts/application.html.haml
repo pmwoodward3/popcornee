@@ -1,7 +1,11 @@
 !!!
 %html
     %head
-        %title Popcornee — Browse YiFy Torrents
+        %title
+            - if @movie
+                = @movie["title"]
+                |
+            Popcornee — Browse YiFy Torrents
         %meta{:content => "Browse YiFy Torrents", :name => "description"}
         = csrf_meta_tags
         = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload'
