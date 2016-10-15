@@ -14,32 +14,32 @@ class MoviesController < ApplicationController
             pageKey = "&page=1"
             @current_page = 1
         end
-        if params[:year] != ""
+        if params[:year] && params[:year] != ""
             yearKey = "&query_term=" + params[:year].to_s
         else
             yearKey = ""
         end
-        if params[:quality] != ""
+        if params[:quality] && params[:quality] != ""
             qualityKey = "&quality=" + params[:quality].to_s
         else
             qualityKey = ""
         end
-        if params[:genre] != ""
+        if params[:genre] && params[:genre] != ""
             genreKey = "&genre=" + params[:genre].to_s
         else
             genreKey = ""
         end
-        if params[:rating] != ""
+        if params[:rating] && params[:rating] != ""
             ratingKey = "&minimum_rating=" + params[:rating].to_s
         else
             ratingKey = ""
         end
-        if params[:q] != ""
+        if params[:q] && params[:q] != ""
             queryKey = "&query_term=" + params[:q].to_s
         else
             queryKey = ""
         end
-        if params[:sort] != ""
+        if params[:sort] && params[:sort] != ""
             if params[:sort] == "rating"
                 sortKey = "&sort_by=" + params[:sort].to_s + "&order_by=desc"
             end
@@ -52,7 +52,7 @@ class MoviesController < ApplicationController
         else
             sortKey = "&sort_by=date_added&order_by=desc"
         end
-        if params[:order] != ""
+        if params[:order] && params[:order] != ""
             orderKey = "&order_by=" + params[:order].to_s
         else
             orderKey = ""
