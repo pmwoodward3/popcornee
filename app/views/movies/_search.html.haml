@@ -1,8 +1,8 @@
 %form{:role => 'search', :method => 'get'}
     .search.control.has-addons.has-addons-centered
-        %input#query.input.is-large{:name => "q", :type => "text", :placeholder => "Search a keyword. Batman?... not too specific!", :value => params[:q]}
+        %input.has-text-centered#query.input.is-large{:name => "q", :type => "text", :placeholder => "Search a keyword. Batman?... not too specific!", :value => params[:q]}
         %span.select.is-large
-            %select#sort{:name => "sort"}
+            %select.has-text-centered#sort{:name => "sort"}
                 %option{:value => ""} by Latest
                 - @sorts.each do |sort|
                     - if params[:sort] == sort
@@ -26,7 +26,7 @@
     or
 %form{:role => 'search', :method => 'get'}
     .search.control.has-addons.has-addons-centered
-        %input#year.input.is-large{:name => "year", :type => "number", :min => @min_year, :max => @max_year, :step => 1, :placeholder => "All Years", :value => params[:year]}
+        %input.has-text-centered#year.input.is-large{:name => "year", :type => "number", :min => @min_year, :max => @max_year, :step => 1, :placeholder => "All Years", :value => params[:year]}
         %span.select.is-large
             %select#rating{:name => "rating"}
                 %option{:value => ""} Any Rating

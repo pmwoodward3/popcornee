@@ -5,6 +5,9 @@
             - if @movie
                 = @movie["title_long"]
                 |
+            - if params[:genre]
+                = params[:genre]
+                |
             Popcornee — Browse YiFy Torrents
         %meta{:content => "Browse YiFy Torrents", :name => "description"}
         = csrf_meta_tags
