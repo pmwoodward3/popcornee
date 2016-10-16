@@ -26,16 +26,10 @@
                 position: relative;
                 background: transparent;
                 padding: 20px 0;
-                text-align: center;
                 h1{
                     display: inline-block;
                     font-weight: 100;
                     font-size: 30pt;
-                }
-                h2{
-                    font-weight: 400;
-                    font-size: 20pt;
-                    letter-spacing: -3px;
                 }
                 p{
                     font-weight: 200;
@@ -43,6 +37,13 @@
                     color: #666;
                     text-align: justify;
                     padding: 15px;
+                }
+            }
+            .panel-footer{
+                h2{
+                    font-weight: 400;
+                    font-size: 20pt;
+                    letter-spacing: -3px;
                 }
                 .rating{
                     font-size: 12pt;
@@ -58,7 +59,7 @@
                     font-weight: 200;
                     letter-spacing: 0;
                     font-size: 17pt;
-                    padding: 5px;
+                    padding: 10px ;
                     display: block;
                     &:hover{
                         background: #333;
@@ -74,6 +75,7 @@
                         background: white;
                         display: inline-block;
                         border-radius: 10px;
+                        font-size: 13pt;
                         font-weight: 400;
                         padding: 5px;
                         margin: 5px 0;

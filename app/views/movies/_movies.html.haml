@@ -9,8 +9,8 @@
                     .panel-body
                         = link_to :id => movie["id"], :action => "show" do
                             %h1= movie["title"]
-                        %p= truncate(movie["summary"], length: 300, separator: ' ')
-                    .panel-footer
+                        %p= truncate(movie["summary"], length: 200, separator: ' ')
+                    .panel-footer.has-text-centered
                         = link_to :year => movie["year"] do
                             %h2= movie["year"]
                         = link_to "http://www.imdb.com/title/"+movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do

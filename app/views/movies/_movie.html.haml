@@ -1,8 +1,9 @@
 .columns.movie-details.is-marginless
     .column.is-3.is-offset-1.is-10-mobile.is-offset-1-mobile
         .panel
-            .panel-body
+            .panel-body.has-text-centered
                 %h1= @movie["title"]
+            .panel-footer.has-text-centered
                 = link_to :year => @movie["year"], :action => "index" do
                     %h2= @movie["year"]
                 = link_to "http://www.imdb.com/title/"+@movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
