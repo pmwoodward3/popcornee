@@ -16,7 +16,9 @@
         = render 'favicon'
     - if params[:genre]
         %body{:class => params[:genre].capitalize}
-            %img#devlogo{:src => image_url("developer.svg")}
+            #info-button
+                = link_to "/info" do
+                    %i.fa.fa-info.fa-2x
             .top-bar.has-text-centered
                 =link_to root_path do
                     %img.logo{:src => image_url("popcornee-logo.svg")}
@@ -25,7 +27,9 @@
             = yield 
     - else
         %body
-            %img#devlogo{:src => image_url("developer.svg")}
+            #info-button
+                = link_to "/info" do
+                    %i.fa.fa-info.fa-2x
             .top-bar.has-text-centered
                 =link_to root_path do
                     %img.logo{:src => image_url("popcornee-logo.svg")}
