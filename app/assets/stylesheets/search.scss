@@ -1,3 +1,4 @@
+@import "vars";
 .search.control{
     #year{
         width: 115px !important;
@@ -25,10 +26,10 @@
     }
     .button{
         background: white;
-        color: #333;
+        color: $dark;
         border: none;
         &:hover{
-            background: #333;
+            background: $dark;
             color: white;
         }
     }

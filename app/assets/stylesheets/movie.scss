@@ -1,3 +1,4 @@
+@import "vars";
 .columns.movie-details{
     .column{
         .panel{
@@ -62,7 +63,7 @@
                     padding: 10px ;
                     display: block;
                     &:hover{
-                        background: #333;
+                        background: $dark;
                         color: white;
                         font-weight: 500;
                     }
@@ -80,7 +81,7 @@
                         padding: 5px;
                         margin: 5px 0;
                         &:hover{
-                            background: #333;
+                            background: $dark;
                             color: white;
                         }
                     }
@@ -171,15 +172,15 @@
                     font-size: 14pt;
                     font-weight: 300;
                     background: white;
-                    color: #333;
+                    color: $dark;
                     border: none;
                     &:hover{
                         color: white;
-                        background: #333;
+                        background: $dark;
                     }
                 }
                 .dl-desc{
-                    color: #333;
+                    color: $dark;
                     line-height: 10px;
                     font-size: 11pt;
                     font-weight: bold;
