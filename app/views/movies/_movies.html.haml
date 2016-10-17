@@ -6,21 +6,23 @@
                     .panel-heading
                         = link_to :id => movie["id"], :action => "show" do
                             %img.movie-poster{:src => movie["medium_cover_image"], :alt => movie["title"], :height => "375px", :width => "250px"}
-                    .panel-body
+                    .panel-body.has-text-centered
                         = link_to :id => movie["id"], :action => "show" do
-                            %h1.has-text-left= movie["title"]
-                        %p= truncate(movie["summary"], length: 200, separator: ' ')
-                    .panel-footer.has-text-centered
+                            %h1= movie["title"]
                         = link_to :year => movie["year"] do
                             %h2= movie["year"]
                         = link_to "http://www.imdb.com/title/"+movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
                             .star-rating{:class => "rate"+(movie["rating"]*10).to_i.to_s}
                             %span.rating= movie["rating"]
                         .pg
-                            = link_to movie["mpa_rating"],"http://www.imdb.com/title/"+movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "Parental Guidance"}
+                            - if movie["mpa_rating"] != ""
+                                = link_to movie["mpa_rating"],"http://www.imdb.com/title/"+movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "Parental Guidance"}
+                            - else
+                                = link_to "N/A","http://www.imdb.com/title/"+movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "Parental Guidance"}
                         - movie["genres"].each do |moviegenres|
                             = link_to :genre => moviegenres do
                                 .label.label-genre= moviegenres
+                        %p.has-text-left= truncate(movie["summary"], length: 200, separator: ' ', omission: ''){link_to "... ", :id => movie["id"], :action => "show"}
                 .link-group.is-marginless
                     - movie["torrents"].each do |torrent|
                         = link_to torrent["url"] do

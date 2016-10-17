@@ -5,7 +5,7 @@
             - if @movie
                 = @movie["title_long"]
                 |
-            - if params[:genre]
+            - if params[:genre] && params[:genre] != ""
                 = params[:genre]
                 |
             Popcornee — Browse YiFy Torrents

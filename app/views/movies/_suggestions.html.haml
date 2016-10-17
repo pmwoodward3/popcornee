@@ -13,10 +13,9 @@
                     .panel-heading
                         = link_to :id => movie["id"], :action => "show" do
                             %img.movie-poster{:src => movie["medium_cover_image"], :alt => movie["title"], :height => "375px", :width => "250px"}
-                    .panel-body
+                    .panel-body.has-text-centered
                         = link_to :id => movie["id"], :action => "show" do
-                            %h1.has-text-left= movie["title"]
-                    .panel-footer.has-text-centered
+                            %h1= movie["title"]
                         = link_to :year => movie["year"] do
                             %h2= movie["year"]
                         = link_to "http://www.imdb.com/title/"+movie["imdb_code"], {:target => "_blank", :rel => "tooltip", :title => "IMDb"} do
@@ -25,5 +24,5 @@
                         .pg
                             = link_to movie["mpa_rating"],"http://www.imdb.com/title/"+movie["imdb_code"]+"/parentalguide", {:target => "_blank", :rel => "tooltip", :title => "Parental Guidance"}
                         - movie["genres"].each do |moviegenres|
-                            = link_to :genre => moviegenres do
+                            = link_to :genre => moviegenres, :action => "index" do
                                 .label.label-genre= moviegenres
