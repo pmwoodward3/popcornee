@@ -1,5 +1,5 @@
 class StaticController < ApplicationController
     def show
-        render params[:page]
+        render params[:p]
     end
 end

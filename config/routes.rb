@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-    get "/:page" => "static#show"
+    get "static/:p" => "static#show"
     resources :movies, :path => ''
     root "movies#index"
 end

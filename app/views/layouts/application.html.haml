@@ -17,7 +17,7 @@
     - if params[:genre]
         %body{:class => params[:genre].capitalize}
             #info-button
-                = link_to "/info" do
+                = link_to "static/info" do
                     %i.fa.fa-info.fa-2x
             .top-bar.has-text-centered
                 =link_to root_path do
@@ -28,7 +28,7 @@
     - else
         %body
             #info-button
-                = link_to "/info" do
+                = link_to "static/info" do
                     %i.fa.fa-info.fa-2x
             .top-bar.has-text-centered
                 =link_to root_path do
