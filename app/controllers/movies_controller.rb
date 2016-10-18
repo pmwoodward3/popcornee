@@ -93,7 +93,7 @@ class MoviesController < ApplicationController
         @sorts = [
             "rating",
             "year",
-            "title",
+            "title"
             ]
         @orders = [
             "ASC",
@@ -107,6 +107,7 @@ class MoviesController < ApplicationController
         @genres = [
             "Action",
             "Adventure",
+            "Animation",
             "Biography",
             "Comedy",
             "Crime",
@@ -136,7 +137,7 @@ class MoviesController < ApplicationController
             "4",
             "3",
             "2",
-            "1",
+            "1"
             ]
         @min_year = 1918
         @max_year = 2016
