@@ -23,19 +23,22 @@
 @import "bulma";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import url('https://fonts.googleapis.com/css?family=Abel');
 @import "vars";
+html{background: $accent;}
 body{
     margin: 0;
     padding: 0;
-    padding-bottom: 150px;
     overflow-y: visible !important;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+    font-family: $family-sans-serif !important;
     background: $accent;
     box-shadow: inset 0 170px 0 0 white;
 }
 .has-weight-900{font-weight: 900;}
 .has-weight-300{font-weight: 300;}
 .has-weight-100{font-weight: 100;}
+.has-color-white{color:white;}
+.has-color-dark{color:$dark;}
 a{
     color: $dark;
     text-decoration: none;
@@ -69,20 +72,22 @@ img.logo{
 .clearfix { zoom: 1; }
 .centered { margin: 0 auto; }
 
-#info-button{
-    position: absolute;
-    left: 10px;
-    top: 10px;
-    a{
-        display: inline-block;
-        width: 100%;
-        height: 100%;
-        color: #ccc;
-        width: 20px;
-        height: 20px;
-        text-align: center;
-        &:hover{
-            color: $dark;
+.footer-bar{
+    padding: 150px 0 30px 0;
+    .level-item{
+        img{
+            max-height: 50px;
+            max-width: 90%;
+            opacity: .3;
+            -webkit-filter: grayscale(100%) brightness(50%);
+            -moz-filter: grayscale(100%) brightness(50%);
+            filter: grayscale(100%) brightness(50%);
+            &:hover{
+                opacity: 1;
+                -webkit-filter: grayscale(0%) brightness(100%);
+                -moz-filter: grayscale(0%) brightness(100%);
+                filter: grayscale(0%) brightness(100%);
+            }
         }
     }
 }

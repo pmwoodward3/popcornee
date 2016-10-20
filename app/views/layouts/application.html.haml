@@ -17,8 +17,10 @@
     - if params[:genre]
         %body{:class => params[:genre].capitalize}
             = render 'layouts/top-bar'
-            = yield 
+            = yield
+            = render 'layouts/footer-bar'
     - else
         %body
             = render 'layouts/top-bar'
-            = yield 
+            = yield
+            = render 'layouts/footer-bar'

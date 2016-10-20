@@ -1,10 +1,11 @@
-$star-bg-color:#ccc;
-$star-fill-color:#fba400;
-$star-height-px:50;
+@import "vars";
+$star-bg-color: #eee;
+$star-fill-color: darken($accent,5%);
+$star-height-px: 50;
 
 .star-rating{
     background-color: $star-bg-color;
-    width:50px;
+    width: 50px;
     height: 50px;
     position: relative;
     display: inline-block;
